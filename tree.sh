@@ -18,6 +18,9 @@ listdir()
 
 	if [ $lastIndex -ge 0 ]; then
 		printf "%.${indents}s└─%s\n" "│ " ${currentDir[$lastIndex]}
+		if [ -d "$currentPath/${currentDir[$index]}" ]; then
+			listdir "$currentPath/${currentDir[$index]}" $(($indents + $indentSize))
+		fi
 	fi
 }
 
