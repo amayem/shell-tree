@@ -9,13 +9,13 @@ listdir()
 
 	for ((index=0; index<lastIndex; index++))
 	do
-			printf "%.${indents}s├─%s\n" " " ${currentDir[$index]}
+			printf "%.${indents}s├─%s\n" "│ " ${currentDir[$index]}
 			if [ -d ${currentDir[$index]} ]; then
 				listdir ${currentDir[$index]} $(($indents + $indentSize))
 			fi	
 	done
 
-	printf "%.${indents}s└─%s\n" " " ${currentDir[$lastIndex]}
+	printf "%.${indents}s└─%s\n" "│ " ${currentDir[$lastIndex]}
 }
 
 listdir $PWD 0
