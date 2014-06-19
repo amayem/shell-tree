@@ -2,9 +2,8 @@
 
 listdir()
 {
-	currentDir=($(ls $1))
-	typeset -i lastIndex index
-	lastIndex=$((${#currentDir[*]} - 1))
+	local currentDir=($(ls $1))
+	local -i lastIndex=$((${#currentDir[*]} - 1)) index
 
 	for ((index=0; index<lastIndex; index++))
 	do
