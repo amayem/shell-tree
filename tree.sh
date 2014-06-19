@@ -9,6 +9,9 @@ listdir()
 	for ((index=0; index<lastIndex; index++))
 	do
 			printf "├─%s\n" ${currentDir[$index]}
+			if [ -d ${currentDir[$index]} ]; then
+				listdir ${currentDir[$index]}
+			fi	
 	done
 
 	printf "└─%s\n" ${currentDir[$lastIndex]}
