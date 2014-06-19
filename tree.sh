@@ -10,14 +10,14 @@ listdir()
 
 	for ((index=0; index<lastIndex; index++))
 	do
-			printf "%.${indents}s├─%s\n" "│ " ${currentDir[$index]}
+			printf "%.${indents}s├─%s\n" "│                                        " ${currentDir[$index]}
 			if [ -d "$currentPath/${currentDir[$index]}" ]; then
 				listdir "$currentPath/${currentDir[$index]}" $(($indents + $indentSize))
 			fi	
 	done
 
 	if [ $lastIndex -ge 0 ]; then
-		printf "%.${indents}s└─%s\n" "│ " ${currentDir[$lastIndex]}
+		printf "%.${indents}s├─%s\n" "│                                        " ${currentDir[$index]}
 		if [ -d "$currentPath/${currentDir[$index]}" ]; then
 			listdir "$currentPath/${currentDir[$index]}" $(($indents + $indentSize))
 		fi
