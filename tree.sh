@@ -1,8 +1,14 @@
 #!/bin/sh
 
 currentDir=($(ls))
-	
-for item in ${currentDir[*]}
+typeset -i lastIndex index
+lastIndex=$((${#currentDir[*]} - 1))
+
+for index in ${!currentDir[*]}
 do
-	printf "├─%s\n" $item
+	if [ "$index" -lt "$lastIndex" ]; then
+		printf "├─%s\n" ${currentDir[$index]}
+	else
+		printf "└─%s\n" ${currentDir[$index]}
+	fi
 done
