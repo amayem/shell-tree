@@ -1,5 +1,8 @@
 #!/bin/sh
 
+loldIFS=$IFS
+IFS=$'\t\n'
+
 listdir()
 {
 	local currentPath=$1 prefix=$2
@@ -10,7 +13,7 @@ listdir()
 	do
 		printf "%s├─%s\n" $prefix ${currentDir[$index]}
 		if [ -d "$currentPath/${currentDir[$index]}" ]; then
-			listdir "$currentPath/${currentDir[$index]}" $prefix" │"
+			listdir "$currentPath/${currentDir[$index]}" $prefix"│ "
 		fi	
 	done
 
@@ -22,3 +25,4 @@ listdir()
 	fi
 }
 listdir $PWD ' '
+IFS=$oldIFS
