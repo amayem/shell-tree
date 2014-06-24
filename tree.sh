@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# loldIFS=$IFS
-# IFS=$'\t\n'
-
 listdir()
 {
 	local currentPath=$1 prefix="$2"
@@ -25,4 +22,3 @@ listdir()
 	fi
 }
 listdir $PWD ''
-# IFS=$oldIFS
